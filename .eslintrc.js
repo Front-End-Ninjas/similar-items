@@ -1,6 +1,6 @@
 module.exports = {
-    "extends": "airbnb",
-    "rules": {
-      "commonjs": true
-    }
+  "extends": "airbnb",
+  "rules": {
+    "import/no-unresolved": [2, {"commonjs": true}]
+  }
 };
