@@ -1,5 +1,5 @@
 const express = require('express');
-const { router } = require('./routes/similar');
+const router = require('./routes/similar');
 
 const app = express();
 
