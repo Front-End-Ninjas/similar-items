@@ -5,6 +5,5 @@ module.exports = {
   // },
   "env": {
     "jest": true,
-    "commonjs": true
   }
 };
