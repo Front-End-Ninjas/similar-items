@@ -1,0 +1,23 @@
+{
+  "name": "similar-items",
+  "version": "1.0.0",
+  "description": "similar item thumbnails",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Front-End-Ninjas/similar-items.git"
+  },
+  "keywords": [
+    "FEC",
+    "ninjas"
+  ],
+  "author": "Makan Azarshahy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Front-End-Ninjas/similar-items/issues"
+  },
+  "homepage": "https://github.com/Front-End-Ninjas/similar-items#readme"
+}
