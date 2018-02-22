@@ -19,4 +19,10 @@ describe('Test the root path', () => {
       expect(response.text).toBe('YOU GOT SIMILAR');
     });
   });
+
+  test("It should send a 404 if the url doesn't exists", () => {
+    return request(app).get('/bort').then((response) => {
+      expect(response.statusCode).toBe(404);
+    });
+  })
 });
