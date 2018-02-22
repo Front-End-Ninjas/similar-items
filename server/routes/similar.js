@@ -6,4 +6,4 @@ router.get('/', (req, res) => {
   res.send('YOU GOT SIMILAR');
 });
 
-module.exports.router = router;
+module.exports = router;
