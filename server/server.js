@@ -1,3 +1,3 @@
-const app = require('./index.js');
+const app = require('./app');
 
-app.listen(3000, () => console.log('Listening on PORT: 3000'));
+app.listen(3000, () => console.log('LISTENING ---- PORT 3000'));
