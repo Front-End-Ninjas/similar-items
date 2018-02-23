@@ -1,10 +1,10 @@
 const dummy = require('./dummy.json');
 
-const addRating = () => Math.floor(Math.random() * 5);
+const addRating = () => Math.ceil(Math.random() * 5);
 
 const addReviews = () => Math.floor(Math.random() * 255);
 
-const addPrice = () => (Math.random() * 40000) / 10;
+const addPrice = () => Math.floor(Math.random() * 40000) / 100;
 
 const hasPrime = () => {
   const bool = Math.floor(Math.random() * 4) % 4;
