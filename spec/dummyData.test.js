@@ -1,4 +1,32 @@
-const data = require('../dummyData/dummyGenerator');
+const {
+  data,
+  rating,
+  reviews,
+  price,
+  prime,
+} = require('../dummyData/dummyGenerator');
+
+describe('Testing helper functions for dummy generator', () => {
+  test('Ratings should return a number', () => {
+    const rate = rating();
+    expect(typeof rate).toBe('number');
+  });
+
+  test('Reviews should return a number', () => {
+    const review = reviews();
+    expect(typeof review).toBe('number');
+  });
+
+  test('Price should return a number', () => {
+    const prices = price();
+    expect(typeof prices).toBe('number');
+  });
+
+  test('Prime should return a boolean', () => {
+    const primes = prime();
+    expect(typeof primes).toBe('boolean');
+  });
+});
 
 describe('Testing dummy data generator', () => {
   test('Should be an array of objects', () => {
