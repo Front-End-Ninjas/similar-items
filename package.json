@@ -2,9 +2,10 @@
   "name": "similar-items",
   "version": "1.0.0",
   "description": "similar item thumbnails",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "server-dev": "nodemon"
   },
   "repository": {
     "type": "git",
