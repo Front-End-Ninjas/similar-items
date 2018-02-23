@@ -3,8 +3,8 @@ const router = require('./routes/similar');
 
 const app = express();
 
-app.use('/similar', router);
+app.use('/item', router);
 
-app.get('/', (req, res) => res.status(200).send('Hello World'));
+app.get('/', (req, res) => res.status(200).send());
 
 module.exports = app;
