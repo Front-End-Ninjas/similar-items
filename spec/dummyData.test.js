@@ -10,16 +10,22 @@ describe('Testing helper functions for dummy generator', () => {
   test('Ratings should return a number', () => {
     const rate = rating();
     expect(typeof rate).toBe('number');
+    expect(rate).toBeGreaterThan(0);
+    expect(rate).toBeLessThan(6);
   });
 
   test('Reviews should return a number', () => {
     const review = reviews();
     expect(typeof review).toBe('number');
+    expect(review).toBeGreaterThanOrEqual(0);
+    expect(review).toBeLessThanOrEqual(255);
   });
 
   test('Price should return a number', () => {
     const prices = price();
     expect(typeof prices).toBe('number');
+    expect(prices).toBeLessThan(400);
+    expect(prices).toBeGreaterThanOrEqual(0);
   });
 
   test('Prime should return a boolean', () => {
