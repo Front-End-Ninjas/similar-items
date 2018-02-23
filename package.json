@@ -2,9 +2,10 @@
   "name": "similar-items",
   "version": "1.0.0",
   "description": "similar item thumbnails",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "server-dev": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -41,6 +42,8 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "jest": "^22.4.0",
+    "nodemon": "^1.15.1",
+    "supertest": "^3.0.0",
     "webpack-dev-middleware": "^2.0.5"
   }
 }
