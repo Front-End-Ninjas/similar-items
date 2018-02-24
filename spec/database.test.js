@@ -1,6 +1,6 @@
 const { Client } = require('pg');
 
-const connectionString = 'postgres://localhost/thumbnails';
+const connectionString = `postgresql://${process.env.POSTGRES_USER}@localhost/${process.env.POSTGRES_DB}` || 'postgres://localhost/thumbnails';
 const client = new Client(connectionString);
 
 describe('Test querying the database', () => {

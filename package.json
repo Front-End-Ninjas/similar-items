@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "server-dev": "nodemon",
-    "database": "psql -f thumbnails.sql"
+    "database": "knex migrate:latest && knex seed:run"
   },
   "repository": {
     "type": "git",

@@ -4,7 +4,10 @@ module.exports = {
 
   development: {
     client: 'pg',
-    connection: 'postgres://localhost/thumbnails',
+    connection: {
+      user: process.env.POSTGRES_USER || '',
+      database: process.env.POSTGRES_DB || 'thumbnails',
+    },
     migrations: {
       directory: `${__dirname}/db/migrations`,
     },
