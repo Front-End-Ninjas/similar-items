@@ -36,7 +36,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: npm run db
+      - run: npm run database
 
       # - run:
       #   # Add a password to the `ubuntu` user, since Postgres is configured to
@@ -52,7 +52,7 @@ jobs:
           command: |
             knex migrate:latest
             knex seed:run
-            
+
       # run tests!
       - run: npm test
 
