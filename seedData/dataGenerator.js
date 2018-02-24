@@ -10,7 +10,7 @@ const hasPrime = () => {
   const bool = Math.floor(Math.random() * 4) % 4;
   return Boolean(bool);
 };
- 
+
 const relativePath = item => `/thumbnail/img/${item.id}`;
 
 const formatData = array => array.map((item) => {

@@ -6,12 +6,11 @@
   "scripts": {
     "test": "jest",
     "server-dev": "nodemon",
-    "database": "psql -f thumbnails.sql"
+    "database": "knex migrate:latest && knex seed:run"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Front-End-Ninjas/similar-items.git",
-    "db": "knex migrate:latest && knex seed:run"
+    "url": "git+https://github.com/Front-End-Ninjas/similar-items.git"
   },
   "keywords": [
     "FEC",
