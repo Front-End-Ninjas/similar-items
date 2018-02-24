@@ -4,6 +4,7 @@ const {
   reviews,
   price,
   prime,
+  path,
 } = require('../dummyData/dummyGenerator');
 
 describe('Testing helper functions for dummy generator', () => {
@@ -31,6 +32,11 @@ describe('Testing helper functions for dummy generator', () => {
   test('Prime should return a boolean', () => {
     const primes = prime();
     expect(typeof primes).toBe('boolean');
+  });
+
+  test('Path should return a relativePath', () => {
+    const relative = path({ id: 19 });
+    expect(relative).toBe('/thumbnail/img/19');
   });
 });
 
