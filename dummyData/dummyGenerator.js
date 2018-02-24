@@ -11,7 +11,7 @@ const hasPrime = () => {
   return Boolean(bool);
 };
 
-const relativePath = item => `/img/${item.id}/similar`;
+const relativePath = item => `/thumbnail/img/${item.id}`;
 
 const formatData = array => array.map((item) => {
   const format = item;
@@ -29,4 +29,5 @@ module.exports = {
   reviews: addReviews,
   price: addPrice,
   prime: hasPrime,
+  path: relativePath,
 };

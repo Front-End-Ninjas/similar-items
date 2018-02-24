@@ -1,9 +1,12 @@
 const express = require('express');
-const router = require('./routes/similar');
+const similar = require('./routes/similar');
+const image = require('./routes/images');
 
 const app = express();
 
-app.use('/item', router);
+app.use('/item', similar);
+
+app.use('/thumbnail', image);
 
 app.get('/', (req, res) => res.status(200).send());
 
