@@ -10,7 +10,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Front-End-Ninjas/similar-items.git"
+    "url": "git+https://github.com/Front-End-Ninjas/similar-items.git",
+    "db": "knex migrate:latest && knex seed:run"
   },
   "keywords": [
     "FEC",
