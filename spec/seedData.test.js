@@ -4,7 +4,7 @@ const {
   reviews,
   price,
   prime,
-} = require('../dummyData/dummyGenerator');
+} = require('../seedData/dataGenerator');
 
 describe('Testing helper functions for dummy generator', () => {
   test('Ratings should return a number', () => {
@@ -43,7 +43,7 @@ describe('Testing dummy data generator', () => {
     const item = data[0];
     expect('id' in item).toBe(true);
     expect('title' in item).toBe(true);
-    expect('type' in item).toBe(true);
+    expect('category' in item).toBe(true);
     expect('rating' in item).toBe(true);
     expect('reviews' in item).toBe(true);
     expect('prime' in item).toBe(true);
