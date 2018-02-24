@@ -8,6 +8,9 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:9.3.0
+        environment:
+        - POSTGRES_USER: root
+        - POSTGRES_DB: thumbnail
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
