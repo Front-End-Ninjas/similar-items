@@ -5,7 +5,8 @@
   "main": "server/server.js",
   "scripts": {
     "test": "jest",
-    "server-dev": "nodemon"
+    "server-dev": "nodemon",
+    "database": "psql -f thumbnails.sql"
   },
   "repository": {
     "type": "git",
