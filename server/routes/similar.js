@@ -1,9 +1,9 @@
 const express = require('express');
 
-const router = express.Router();
+const similar = express.Router();
 
-router.get('/:id/similar', (req, res) => {
-  res.status(200).send();
+similar.get('/:id/similar', (req, res) => {
+  res.status(200).send('Success');
 });
 
-module.exports = router;
+module.exports = similar;
