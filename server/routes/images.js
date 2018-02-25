@@ -11,11 +11,7 @@ image.get('/img/:id', (req, res) => {
     if (err) {
       res.status(404).send(err);
     } else {
-      res.sendFile(imgPath, (bad) => {
-        if (bad) {
-          res.status(500).send(err);
-        }
-      });
+      res.sendFile(imgPath);
     }
   });
 });

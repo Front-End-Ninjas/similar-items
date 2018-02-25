@@ -1,4 +1,4 @@
-const dummy = require('./dummy.json');
+const seed = require('./seed.json');
 
 const addRating = () => Math.ceil(Math.random() * 5);
 
@@ -24,7 +24,7 @@ const formatData = array => array.map((item) => {
 });
 
 module.exports = {
-  data: formatData(dummy),
+  data: formatData(seed),
   rating: addRating,
   reviews: addReviews,
   price: addPrice,

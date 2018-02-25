@@ -4,8 +4,7 @@ const {
   reviews,
   price,
   prime,
-  path,
-} = require('../dummyData/dummyGenerator');
+} = require('../seedData/dataGenerator');
 
 describe('Testing helper functions for dummy generator', () => {
   test('Ratings should return a number', () => {
@@ -33,11 +32,6 @@ describe('Testing helper functions for dummy generator', () => {
     const primes = prime();
     expect(typeof primes).toBe('boolean');
   });
-
-  test('Path should return a relativePath', () => {
-    const relative = path({ id: 19 });
-    expect(relative).toBe('/thumbnail/img/19');
-  });
 });
 
 describe('Testing dummy data generator', () => {
@@ -49,7 +43,7 @@ describe('Testing dummy data generator', () => {
     const item = data[0];
     expect('id' in item).toBe(true);
     expect('title' in item).toBe(true);
-    expect('type' in item).toBe(true);
+    expect('category' in item).toBe(true);
     expect('rating' in item).toBe(true);
     expect('reviews' in item).toBe(true);
     expect('prime' in item).toBe(true);
