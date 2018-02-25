@@ -1,6 +1,12 @@
 const { Client } = require('pg');
 
-const connectionString = `postgresql://${process.env.POSTGRES_USER}@localhost/${process.env.POSTGRES_DB}` || 'postgres://localhost/thumbnails';
+let connectionString;
+if (process.env.POSTGRES_USER && process.env.POSTGRES_DB) {
+  connectionString = `postgresql://${process.env.POSTGRES_USER}@localhost/${process.env.POSTGRES_DB}`;
+} else {
+  connectionString = 'postgres://localhost/thumbnails';
+}
+
 const client = new Client(connectionString);
 
 describe('Test querying the database', () => {
@@ -12,6 +18,7 @@ describe('Test querying the database', () => {
     .query('SELECT * FROM items')
     .then((res) => {
       expect(res.rows).toBeInstanceOf(Array);
+      expect(res.rows.length).toBe(300);
     })
     .catch(e => console.error(e.stack)));
 
