@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "server-dev": "nodemon",
-    "database": "knex migrate:latest && knex seed:run"
+    "database": "knex migrate:latest && knex seed:run",
+    "dev": "webpack --watch"
   },
   "repository": {
     "type": "git",
