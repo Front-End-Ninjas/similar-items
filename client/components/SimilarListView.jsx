@@ -1,7 +1,7 @@
 import React from 'react';
 import ThumbnailView from './ThumbnailView';
 
-const { data } = require('../seedData/dataGenerator');
+const { data } = require('../../seedData/dataGenerator');
 
 class SimilarListView extends React.Component {
   constructor(props) {
