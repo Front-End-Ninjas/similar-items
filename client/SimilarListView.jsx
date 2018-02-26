@@ -1,13 +1,14 @@
 import React from 'react';
 import ThumbnailView from './ThumbnailView';
-import seed from '../seedData/seed.json';
+
+const { data } = require('../seedData/dataGenerator');
 
 class SimilarListView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       page: 0,
-      list: seed,
+      list: data,
       limit: 9,
     };
   }
@@ -21,16 +22,14 @@ class SimilarListView extends React.Component {
   }
 
   render() {
-    console.log(this.state.list);
-
     return (
       <div className="list-container">
-        <div>
+        <div className="page-container">
           <span>Page {this.state.page} of {this.state.limit}</span>
           <span> | </span>
           <span>Start Over</span>
         </div>
-        <div>
+        <div className="carousel-container">
           <div className="left">LEFT BUTTON</div>
           <div className="thumbnail-container">
             {
