@@ -3,15 +3,15 @@ import PropType from 'prop-types';
 
 const ThumbnailView = ({ item }) => (
   <div className="thumbnail">
-    <div className="image">Image Goes Here</div>
+    <img className="image" src={`http://localhost:3000${item.relativePath}`} alt="thumbnail"/>
     <div className="title">{item.title}</div>
     <div className="ratings-container">
-      <span className="rating">RATING: 12345 </span>
-      <span className="reviews">REVIEWS GO HERE</span>
+      <span className="rating">{item.rating}</span>
+      <span className="reviews">{item.reviews}</span>
     </div>
     <div className="price-prime-container">
-      <span className="price">PRICE GOES HERE</span>
-      <span className="prime">PRIME GOES HERE</span>
+      <span className="price">{item.price}</span>
+      <span className="prime">{item.prime}</span>
     </div>
   </div>
 );
@@ -21,6 +21,10 @@ ThumbnailView.propTypes = {
     id: PropType.number.isRequired,
     title: PropType.string.isRequired,
     category: PropType.string.isRequired,
+    rating: PropType.number.isRequired,
+    reviews: PropType.number.isRequired,
+    price: PropType.number.isRequired,
+    prime: PropType.bool.isRequired,
   }).isRequired,
 };
 
