@@ -7,11 +7,13 @@ const ThumbnailView = ({ item }) => (
     <div className="title">{item.title}</div>
     <div className="ratings-container">
       <span className="rating">{item.rating}</span>
+      <span> || </span>
       <span className="reviews">{item.reviews}</span>
     </div>
     <div className="price-prime-container">
       <span className="price">{item.price}</span>
-      <span className="prime">{item.prime}</span>
+      <span> || </span>
+      <span className="prime">{`${item.prime}`}</span>
     </div>
   </div>
 );
