@@ -3,7 +3,7 @@ import PropType from 'prop-types';
 
 const ThumbnailView = ({ item }) => (
   <div className="thumbnail">
-    <img className="image" src={`http://localhost:3000${item.relativePath}`} alt="thumbnail"/>
+    <img className="image" src={`http://localhost:3000${item.relativePath}`} alt="thumbnail" />
     <div className="title">{item.title}</div>
     <div className="ratings-container">
       <span className="rating">{item.rating}</span>
