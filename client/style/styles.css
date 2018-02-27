@@ -1,0 +1,29 @@
+.list-container, .page-container, .carousel-container,
+.left, .thumbnail-container, .right, .thumbnail, .image,
+.title, .ratings-container, .rating, .reviews,
+.price-prime-container, .price, .prime, .thumbnail-list {
+  display: flex;
+}
+
+span {
+  color: blue;
+}
+
+.list-container, .thumbnail {
+  flex-flow: column;
+}
+
+.carousel-container {
+  flex-flow: row;
+}
+
+.thumbnail-list {
+  height: 300px;
+  width: 80%;
+  overflow: hidden
+}
+
+.thumbnail {
+  width: 160px;
+  margin: 0px 5px;
+}
