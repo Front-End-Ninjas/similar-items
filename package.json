@@ -11,7 +11,7 @@
   },
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "/Users/m.azarshahy/Desktop/FEC/similar-items/spec/setupTests.js"
+    "setupTestFrameworkScriptFile": "./spec/setupTests.js"
   },
   "repository": {
     "type": "git",
