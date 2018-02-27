@@ -13,14 +13,6 @@ class SimilarListView extends React.Component {
     };
   }
 
-  leftClick() {
-
-  }
-
-  rightClick() {
-
-  }
-
   render() {
     return (
       <div className="list-container">
