@@ -12,8 +12,11 @@ const ThumbnailView = ({ item }) => (
     </div>
     <div className="price-prime-container">
       <span className="price">{item.price}</span>
-      <span> || </span>
-      <span className="prime">{`${item.prime}`}</span>
+      <span className="prime">
+        {
+          item.prime ? ' || PRIME' : null
+        }
+      </span>
     </div>
   </div>
 );
