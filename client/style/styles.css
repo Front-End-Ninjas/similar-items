@@ -1,7 +1,8 @@
-.list-container, .page-container, .carousel-container,
+img, span, .list-container, .page-container, .carousel-container,
 .left, .thumbnail-container, .right, .thumbnail, .image,
 .title, .ratings-container, .rating, .reviews,
-.price-prime-container, .price, .prime, .thumbnail-list {
+.price-prime-container, .price, .prime, .thumbnail-list, .page,
+.start-over, .button {
   display: flex;
 }
 
@@ -10,20 +11,37 @@ span {
 }
 
 .list-container, .thumbnail {
+  height: 340px;
   flex-flow: column;
+  width: 89%;
+}
+
+.page-container {
+  flex-flow: row-reverse;
 }
 
 .carousel-container {
   flex-flow: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .thumbnail-list {
   height: 300px;
   width: 80%;
-  overflow: hidden
+  overflow: scroll;
 }
 
 .thumbnail {
   width: 160px;
   margin: 0px 5px;
+}
+
+.button {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 5%;
+  margin: 5px;
+  justify-content: center
 }
