@@ -1,5 +1,5 @@
 import React from 'react';
-import PropType from 'prop-types';
+import itemType from './type/item';
 
 const ThumbnailView = ({ item }) => (
   <div className="thumbnail">
@@ -22,15 +22,7 @@ const ThumbnailView = ({ item }) => (
 );
 
 ThumbnailView.propTypes = {
-  item: PropType.shape({
-    id: PropType.number.isRequired,
-    title: PropType.string.isRequired,
-    category: PropType.string.isRequired,
-    rating: PropType.number.isRequired,
-    reviews: PropType.number.isRequired,
-    price: PropType.number.isRequired,
-    prime: PropType.bool.isRequired,
-  }).isRequired,
+  item: itemType.isRequired,
 };
 
 export default ThumbnailView;
