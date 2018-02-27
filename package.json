@@ -6,7 +6,12 @@
   "scripts": {
     "test": "jest",
     "server-dev": "nodemon",
-    "database": "knex migrate:latest && knex seed:run"
+    "database": "knex migrate:latest && knex seed:run",
+    "dev": "webpack --watch"
+  },
+  "jest": {
+    "verbose": true,
+    "setupTestFrameworkScriptFile": "./spec/setupTests.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +33,7 @@
     "jquery": "^3.3.1",
     "knex": "^0.14.4",
     "pg": "^7.4.1",
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "webpack": "^3.11.0"
@@ -38,7 +44,9 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.18",
     "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.18.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.9.0",
@@ -46,6 +54,7 @@
     "eslint-plugin-react": "^7.7.0",
     "jest": "^22.4.0",
     "nodemon": "^1.15.1",
+    "react-test-renderer": "^16.2.0",
     "supertest": "^3.0.0",
     "webpack-dev-middleware": "^2.0.5"
   }
