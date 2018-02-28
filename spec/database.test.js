@@ -1,4 +1,5 @@
 const { Client } = require('pg');
+const helpers = require('../server/db_helpers/helpers');
 
 let connectionString;
 if (process.env.POSTGRES_USER && process.env.POSTGRES_DB) {
@@ -16,9 +17,9 @@ describe('Test querying the database', () => {
 
   test('Should get an array length of 300', () => client
     .query('SELECT * FROM items')
-    .then((res) => {
-      expect(res.rows).toBeInstanceOf(Array);
-      expect(res.rows.length).toBe(300);
+    .then(({ rows }) => {
+      expect(rows).toBeInstanceOf(Array);
+      expect(rows.length).toBe(300);
     })
     .catch(e => console.error(e.stack)));
 
@@ -34,17 +35,9 @@ describe('Test querying the database', () => {
 
   test('Should get the list of items in the same category with out the original item', () => {
     const id = 0;
-
-    return client.query('SELECT category FROM items WHERE id = $1', [id])
-      .then((res) => {
-        const { category } = res.rows[0];
-        return client.query('SELECT * FROM items WHERE category = $1 AND id != $2', [category, id])
-          .then((list) => {
-            expect(list.rows).toBeInstanceOf(Array);
-            expect(list.rows[0].category).toBe('Electronics');
-          })
-          .catch(e => console.error(e.stack));
-      })
-      .catch(e => console.error(e.stack));
+    helpers.getList(id, (list) => {
+      expect(list.rows).toBeInstanceOf(Array);
+      expect(list.rows[0].category).toBe('Electronics');
+    });
   });
 });
