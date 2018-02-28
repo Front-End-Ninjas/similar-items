@@ -17,7 +17,6 @@ module.exports = {
         const { category } = res.rows[0];
         client.query('SELECT * FROM items WHERE category = $1 AND id != $2', [category, id])
           .then((list) => {
-            client.end();
             callback(null, list);
           })
           .catch(e => callback(e.stack, null));
