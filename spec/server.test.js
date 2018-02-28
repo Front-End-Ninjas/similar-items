@@ -13,12 +13,13 @@ describe('Test the root path', () => {
 
 describe('Test the similar path', () => {
   test('It should respond to the GET with url "/item/:id/similar"', () =>
-    request(app).get('/item/19/similar').then((response) => {
+    request(app).get('/item/1/similar').then((response) => {
       const { body, statusCode } = response;
 
       expect(statusCode).toBe(200);
       expect(body.rows).toBeInstanceOf(Array);
-      expect(body.rows[0].category).toBe('Outdoors');
+      expect(body.rows[0].category).toBe('Movies');
+      expect(body.rows[0].id).not.toBe(1);
     }));
 });
 
