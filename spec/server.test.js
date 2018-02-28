@@ -38,3 +38,19 @@ describe('Test the thumbnail path', () => {
       expect(response.type).toBe('image/jpeg');
     }));
 });
+
+describe('Test the assests path', () => {
+  test('It should respond to the GET request', () =>
+    request(app).get('/assets/prime.png').then(response =>
+      expect(response.statusCode).toBe(200)));
+
+  test('It should send an error if the url doesn\t exists', () =>
+    request(app).get('/assets/bad').then(response =>
+      expect(response.statusCode).toBe(404)));
+
+  test('It should send an prime image', () =>
+    request(app).get('/assets/prime.png').then((response) => {
+      expect(response.body).toBeInstanceOf(Buffer);
+      expect(response.type).toBe('image/png');
+    }));
+});
