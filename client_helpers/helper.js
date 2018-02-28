@@ -8,7 +8,7 @@ const shiftList = (page, list) => {
 
 const determinePage = (name, page, limit) => {
   let newPage;
-  
+
   if (name === 'right' && page < limit - 1) {
     newPage = page + 1;
   } else if (name === 'left' && page > 0) {
