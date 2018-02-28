@@ -8,21 +8,20 @@ if (process.env.POSTGRES_USER && process.env.POSTGRES_DB) {
 }
 
 const client = new Client(connectionString);
+client.connect();
 
 module.exports = {
   getList: (id, callback) => {
-    return client.query('SELECT category FROM items WHERE id = $1', [id])
+    client.query('SELECT category FROM items WHERE id = $1', [id])
       .then((res) => {
         const { category } = res.rows[0];
-        return client.query('SELECT * FROM items WHERE category = $1 AND id != $2', [category, id])
+        client.query('SELECT * FROM items WHERE category = $1 AND id != $2', [category, id])
           .then((list) => {
-            callback(list);
+            client.end();
+            callback(null, list);
           })
-          .catch(e => console.error(e.stack));
+          .catch(e => callback(e.stack, null));
       })
-      .catch(e => console.error(e.stack));
-  },
-  getImages: () => {
-    console.log('hi');
+      .catch(e => callback(e.stack, null));
   },
 };
