@@ -16,7 +16,7 @@ const ThumbnailView = ({ item }) => (
       <span className="price">{item.price}</span>
       <span className="prime">
         {
-          item.prime ? <img src="http://localhost:3000/assets/prime.png" alt="rating" /> : null
+          item.prime ? <img src="http://localhost:3000/assets/prime.png" alt="rating" className="prime-logo"/> : null
         }
       </span>
     </div>
