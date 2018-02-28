@@ -6,7 +6,9 @@ const ThumbnailView = ({ item }) => (
     <img className="image" src={`http://localhost:3000${item.relativePath}`} alt="thumbnail" />
     <div className="title">{item.title}</div>
     <div className="ratings-container">
-      <span className="rating">{item.rating}</span>
+      <span className="rating">
+        <img src={`http://localhost:3000/assets/stars/${item.rating}.png`} alt="rating" />
+      </span>
       <span> || </span>
       <span className="reviews">{item.reviews}</span>
     </div>
@@ -14,7 +16,7 @@ const ThumbnailView = ({ item }) => (
       <span className="price">{item.price}</span>
       <span className="prime">
         {
-          item.prime ? ' || PRIME' : null
+          item.prime ? <img src="http://localhost:3000/assets/prime.png" alt="rating" /> : null
         }
       </span>
     </div>
