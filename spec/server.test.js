@@ -14,8 +14,11 @@ describe('Test the root path', () => {
 describe('Test the similar path', () => {
   test('It should respond to the GET with url "/item/:id/similar"', () =>
     request(app).get('/item/19/similar').then((response) => {
-      expect(response.statusCode).toBe(200);
-      expect(response.body.rows).toBeInstanceOf(Array);
+      const { body, statusCode } = response;
+
+      expect(statusCode).toBe(200);
+      expect(body.rows).toBeInstanceOf(Array);
+      expect(body.rows[0].category).toBe('Outdoors');
     }));
 });
 
