@@ -5,7 +5,7 @@ const path = require('path');
 const assets = express.Router();
 
 assets.get('*', (req, res) => {
-  const assetPath = path.join(__dirname, '..', '..', 'imgData', `${req.url}.png`);
+  const assetPath = path.join(__dirname, '..', '..', 'imgData', `${req.url}`);
 
   fs.stat(assetPath, (err) => {
     if (err) {
