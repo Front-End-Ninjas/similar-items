@@ -6,7 +6,7 @@ exports.up = (knex, Promise) => Promise.all([
     table.integer('rating');
     table.integer('reviews');
     table.boolean('prime');
-    table.float('price');
+    table.string('price', 10);
     table.string('relativePath', 30);
   }),
 ]);
