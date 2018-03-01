@@ -1,8 +1,7 @@
 import React from 'react';
 import ThumbnailView from './ThumbnailView';
 import helper from '../../client_helpers/helper';
-
-const { data } = require('../../seedData/dataGenerator');
+import search from '../api_request/api';
 
 class SimilarListView extends React.Component {
   constructor(props) {
@@ -13,15 +12,22 @@ class SimilarListView extends React.Component {
       total: [],
       limit: 1,
     };
-
+    this.fetch = this.fetch.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      list: data.slice(0, 7),
-      total: data,
-      limit: Math.ceil(data.length / 7),
+    const id = Math.floor(Math.random() * 50);
+    search(id, (err, { data }) => {
+      if (err) {
+        console.error(err);
+      } else {
+        this.setState({
+          total: data.rows,
+          list: data.rows.slice(0, 7),
+          limit: Math.ceil(data.rows.length / 7),
+        });
+      }
     });
   }
 
@@ -33,6 +39,21 @@ class SimilarListView extends React.Component {
     if (newPage !== undefined) {
       this.setState(helper.shift(newPage, total));
     }
+  }
+
+  fetch(event) {
+    const { id } = event.target;
+    search(id, (err, { data }) => {
+      if (err) {
+        console.log(err);
+      } else {
+        this.setState({
+          total: data.rows,
+          list: data.rows.slice(0, 7),
+          limit: Math.ceil(data.rows.length / 7),
+        });
+      }
+    });
   }
 
   render() {
@@ -58,8 +79,14 @@ class SimilarListView extends React.Component {
             <div className="thumbnail-container">
               {
                 this.state.list.length === 0 ?
-                  <img src="http://localhost:3000/assets/foundation/loading.gif" alt="loading" className="loading" />
-                  : this.state.list.map(item => <ThumbnailView key={item.id} item={item} />)
+                  <img src="http://localhost:3000/assets/foundation/loading.gif" alt="loading" className="loading" /> :
+                  this.state.list.map(item => (
+                    <ThumbnailView
+                      key={item.id}
+                      item={item}
+                      fetch={this.fetch}
+                    />
+                  ))
               }
             </div>
           </div>

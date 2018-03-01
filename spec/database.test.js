@@ -1,14 +1,5 @@
-const { Client } = require('pg');
+const client = require('../db/pgClient');
 const helpers = require('../server/db_helpers/helpers');
-
-let connectionString;
-if (process.env.POSTGRES_USER && process.env.POSTGRES_DB) {
-  connectionString = `postgresql://${process.env.POSTGRES_USER}@localhost/${process.env.POSTGRES_DB}`;
-} else {
-  connectionString = 'postgres://localhost/thumbnails';
-}
-
-const client = new Client(connectionString);
 
 describe('Test querying the database', () => {
   beforeAll(() => client.connect());
