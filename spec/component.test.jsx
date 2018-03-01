@@ -41,14 +41,14 @@ describe('Testing the SimilarListView', () => {
 });
 
 describe('Testing the ThumbnailView', () => {
-  const thumbnail = shallow(<TV item={test[0]} key={test[0].id} />);
+  const thumbnail = shallow(<TV item={test[0]} key={test[0].id} fetch={item => item} />);
 
   it('Should be defined', () => expect(TV).toBeDefined());
 
   it('Should have rendered the item information', () => {
     expect(thumbnail.find('.title').text()).toBe('Product 22 Clothing');
     expect(thumbnail.find('.reviews').text()).toBe('<Badge />');
-    expect(thumbnail.find('.price').text()).toBe('266.57');
+    expect(thumbnail.find('.price').text()).toBe('$266.57');
   });
 
   it('Should render an image if prime is true', () => {
@@ -56,7 +56,7 @@ describe('Testing the ThumbnailView', () => {
   });
 
   it('Should not render an image if prime is false', () => {
-    const wrapper = shallow(<TV item={test[6]} key={test[6].id} />);
+    const wrapper = shallow(<TV item={test[6]} key={test[6].id} fetch={item => item} />);
     expect(wrapper.find('img.prime-logo').length).toBe(0);
   });
 });
