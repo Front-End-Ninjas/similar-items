@@ -49,6 +49,7 @@ class SimilarListView extends React.Component {
         console.log(err);
       } else {
         this.setState({
+          page: 0,
           total: data.rows,
           list: data.rows.slice(0, 7),
           limit: Math.ceil(data.rows.length / 7),
