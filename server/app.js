@@ -2,15 +2,14 @@ const express = require('express');
 const path = require('path');
 const similar = require('./routes/similar');
 const image = require('./routes/images');
+const assets = require('./routes/assets');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, '..', 'client')));
-app.use(express.static(path.join(__dirname, '..', 'dist')));
+app.use(express.static(path.join(__dirname, '..', 'client'), { index: ['thumbnail.html'] }));
 
 app.use('/item', similar);
 app.use('/thumbnail', image);
-
-app.get('/', (req, res) => res.status(200).sendFile(path.join(__dirname, '..', 'client', 'thumbnail.html')));
+app.use('/assets', assets);
 
 module.exports = app;

@@ -9,7 +9,7 @@ describe('Testing the SimilarListView', () => {
   it('Should be defined', () => expect(SLV).toBeDefined());
 
   it('Should have render "ThumbnailView"', () => {
-    expect(similar.find('ThumbnailView').length).toBe(300);
+    expect(similar.find('ThumbnailView').length).toBe(7);
   });
 
   it('Should have appropriate containers', () => {
@@ -37,8 +37,27 @@ describe('Testing the ThumbnailView', () => {
 
   it('Should have rendered the item information', () => {
     expect(thumbnail.find('.title').text()).toBe('PRODUCT NAME');
-    expect(thumbnail.find('.rating').text()).toBe('4');
     expect(thumbnail.find('.reviews').text()).toBe('114');
     expect(thumbnail.find('.price').text()).toBe('76.19');
+  });
+
+  it('Should render an image if prime is true', () => {
+    expect(thumbnail.find('img.prime-logo').length).toBe(1);
+  });
+
+  it('Should not render an image if prime is false', () => {
+    const notPrime = {
+      id: 0,
+      title: 'PRODUCT NAME',
+      rating: 4,
+      reviews: 114,
+      price: 76.19,
+      prime: false,
+      category: 'CAMPING',
+      relativePath: '/thumbnail/img/14',
+    };
+
+    const wrapper = shallow(<TV item={notPrime} key={notPrime.id} />);
+    expect(wrapper.find('img.prime-logo').length).toBe(0);
   });
 });
