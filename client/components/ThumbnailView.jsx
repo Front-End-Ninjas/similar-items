@@ -18,8 +18,8 @@ const ThumbnailView = ({ item, fetch }) => {
     >
       <div className="thumbnail" onClick={fetch} id={item.id}>
         <img
-          className="rating"
-          src={`http://localhost:3000/assets/stars/${item.rating}.png`}
+          className="image"
+          src={`http://localhost:3000${item.relativePath}`}
           alt="thumbnail"
           id={item.id}
         />
