@@ -2,9 +2,17 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import SLV from '../client/components/SimilarListView';
 import TV from '../client/components/ThumbnailView';
+import test from './testData';
+
 
 describe('Testing the SimilarListView', () => {
   const similar = shallow(<SLV />);
+  similar.setState({
+    page: 0,
+    list: test.slice(0, 7),
+    total: test,
+    limit: Math.ceil(test.length / 7),
+  });
 
   it('Should be defined', () => expect(SLV).toBeDefined());
 
@@ -17,28 +25,30 @@ describe('Testing the SimilarListView', () => {
     expect(similar.find('.carousel-container').length).toBe(1);
     expect(similar.find('.thumbnail-container').length).toBe(1);
   });
+
+  it('Should have a working handleClick function', () => {
+    similar.find('.right').simulate('click', { target: 'right' });
+    similar.find('.right').simulate('click', { target: 'start-over' });
+    expect(similar.state('page')).toBe(0);
+  });
+
+  it('Should have a working fetch function', () => {
+    similar.instance().fetch = jest.fn();
+    similar.update();
+    similar.instance().fetch({ target: { id: 1 } });
+    expect(similar.instance().fetch).toBeCalledWith({ target: { id: 1 } });
+  });
 });
 
 describe('Testing the ThumbnailView', () => {
-  const data = {
-    id: 0,
-    title: 'PRODUCT NAME',
-    rating: 4,
-    reviews: 114,
-    price: 76.19,
-    prime: true,
-    category: 'CAMPING',
-    relativePath: '/thumbnail/img/14',
-  };
-
-  const thumbnail = shallow(<TV item={data} key={data.id} />);
+  const thumbnail = shallow(<TV item={test[0]} key={test[0].id} />);
 
   it('Should be defined', () => expect(TV).toBeDefined());
 
   it('Should have rendered the item information', () => {
-    expect(thumbnail.find('.title').text()).toBe('PRODUCT NAME');
-    expect(thumbnail.find('.reviews').text()).toBe('114');
-    expect(thumbnail.find('.price').text()).toBe('76.19');
+    expect(thumbnail.find('.title').text()).toBe('Product 22 Clothing');
+    expect(thumbnail.find('.reviews').text()).toBe('55');
+    expect(thumbnail.find('.price').text()).toBe('266.57');
   });
 
   it('Should render an image if prime is true', () => {
@@ -46,18 +56,7 @@ describe('Testing the ThumbnailView', () => {
   });
 
   it('Should not render an image if prime is false', () => {
-    const notPrime = {
-      id: 0,
-      title: 'PRODUCT NAME',
-      rating: 4,
-      reviews: 114,
-      price: 76.19,
-      prime: false,
-      category: 'CAMPING',
-      relativePath: '/thumbnail/img/14',
-    };
-
-    const wrapper = shallow(<TV item={notPrime} key={notPrime.id} />);
+    const wrapper = shallow(<TV item={test[6]} key={test[6].id} />);
     expect(wrapper.find('img.prime-logo').length).toBe(0);
   });
 });
