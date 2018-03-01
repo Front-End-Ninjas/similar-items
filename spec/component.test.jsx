@@ -47,7 +47,7 @@ describe('Testing the ThumbnailView', () => {
 
   it('Should have rendered the item information', () => {
     expect(thumbnail.find('.title').text()).toBe('Product 22 Clothing');
-    expect(thumbnail.find('.reviews').text()).toBe('55');
+    expect(thumbnail.find('.reviews').text()).toBe('<Badge />');
     expect(thumbnail.find('.price').text()).toBe('266.57');
   });
 
