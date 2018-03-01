@@ -6,7 +6,7 @@ const test = [
     rating: 2,
     reviews: 55,
     prime: true,
-    price: 266.57,
+    price: '$266.57',
     relativePath: '/thumbnail/img/22',
   },
   {
@@ -16,7 +16,7 @@ const test = [
     rating: 4,
     reviews: 251,
     prime: true,
-    price: 58.27,
+    price: '$58.27',
     relativePath: '/thumbnail/img/31',
   },
   {
@@ -26,7 +26,7 @@ const test = [
     rating: 1,
     reviews: 41,
     prime: true,
-    price: 118.16,
+    price: '$118.16',
     relativePath: '/thumbnail/img/67',
   },
   {
@@ -36,7 +36,7 @@ const test = [
     rating: 4,
     reviews: 241,
     prime: true,
-    price: 371.14,
+    price: '$371.14',
     relativePath: '/thumbnail/img/74',
   },
   {
@@ -46,7 +46,7 @@ const test = [
     rating: 3,
     reviews: 119,
     prime: true,
-    price: 194.63,
+    price: '$194.63',
     relativePath: '/thumbnail/img/80',
   },
   {
@@ -56,7 +56,7 @@ const test = [
     rating: 3,
     reviews: 117,
     prime: true,
-    price: 74.02,
+    price: '$74.02',
     relativePath: '/thumbnail/img/101',
   },
   {
@@ -66,7 +66,7 @@ const test = [
     rating: 3,
     reviews: 86,
     prime: false,
-    price: 194.92,
+    price: '$194.92',
     relativePath: '/thumbnail/img/119',
   },
   {
@@ -76,7 +76,7 @@ const test = [
     rating: 5,
     reviews: 149,
     prime: true,
-    price: 166.85,
+    price: '$166.85',
     relativePath: '/thumbnail/img/127',
   },
   {
@@ -86,7 +86,7 @@ const test = [
     rating: 2,
     reviews: 143,
     prime: true,
-    price: 388.24,
+    price: '$388.24',
     relativePath: '/thumbnail/img/143',
   },
   {
@@ -96,7 +96,7 @@ const test = [
     rating: 2,
     reviews: 33,
     prime: true,
-    price: 225.91,
+    price: '$225.91',
     relativePath: '/thumbnail/img/149',
   },
   {
@@ -106,7 +106,7 @@ const test = [
     rating: 5,
     reviews: 175,
     prime: true,
-    price: 166.76,
+    price: '$166.76',
     relativePath: '/thumbnail/img/179',
   },
   {
@@ -116,7 +116,7 @@ const test = [
     rating: 4,
     reviews: 160,
     prime: false,
-    price: 349.42,
+    price: '$349.42',
     relativePath: '/thumbnail/img/184',
   },
   {
@@ -126,7 +126,7 @@ const test = [
     rating: 5,
     reviews: 107,
     prime: true,
-    price: 197.47,
+    price: '$197.47',
     relativePath: '/thumbnail/img/185',
   },
   {
@@ -136,7 +136,7 @@ const test = [
     rating: 5,
     reviews: 137,
     prime: true,
-    price: 137.72,
+    price: '$137.72',
     relativePath: '/thumbnail/img/193',
   },
   {
@@ -146,7 +146,7 @@ const test = [
     rating: 1,
     reviews: 190,
     prime: true,
-    price: 396.16,
+    price: '$396.16',
     relativePath: '/thumbnail/img/201',
   },
   {
@@ -156,7 +156,7 @@ const test = [
     rating: 4,
     reviews: 106,
     prime: true,
-    price: 132.17,
+    price: '$132.17',
     relativePath: '/thumbnail/img/204',
   },
   {
@@ -166,7 +166,7 @@ const test = [
     rating: 2,
     reviews: 126,
     prime: true,
-    price: 350.33,
+    price: '$350.33',
     relativePath: '/thumbnail/img/230',
   },
   {
@@ -176,7 +176,7 @@ const test = [
     rating: 2,
     reviews: 93,
     prime: true,
-    price: 32.43,
+    price: '$32.43',
     relativePath: '/thumbnail/img/235',
   },
   {
@@ -186,7 +186,7 @@ const test = [
     rating: 4,
     reviews: 58,
     prime: true,
-    price: 203.46,
+    price: '$203.46',
     relativePath: '/thumbnail/img/236',
   },
   {
@@ -196,7 +196,7 @@ const test = [
     rating: 4,
     reviews: 86,
     prime: true,
-    price: 356.76,
+    price: '$356.76',
     relativePath: '/thumbnail/img/255',
   },
   {
@@ -206,7 +206,7 @@ const test = [
     rating: 4,
     reviews: 139,
     prime: true,
-    price: 120.06,
+    price: '$120.06',
     relativePath: '/thumbnail/img/275',
   },
   {
@@ -216,7 +216,7 @@ const test = [
     rating: 5,
     reviews: 132,
     prime: true,
-    price: 275.53,
+    price: '$275.53',
     relativePath: '/thumbnail/img/281',
   },
   {
@@ -226,7 +226,7 @@ const test = [
     rating: 3,
     reviews: 211,
     prime: true,
-    price: 213.42,
+    price: '$213.42',
     relativePath: '/thumbnail/img/285',
   },
   {
@@ -236,7 +236,7 @@ const test = [
     rating: 1,
     reviews: 40,
     prime: true,
-    price: 43.65,
+    price: '$43.65',
     relativePath: '/thumbnail/img/287',
   },
   {
@@ -246,7 +246,7 @@ const test = [
     rating: 1,
     reviews: 211,
     prime: true,
-    price: 26.95,
+    price: '$26.95',
     relativePath: '/thumbnail/img/296',
   },
 ];
