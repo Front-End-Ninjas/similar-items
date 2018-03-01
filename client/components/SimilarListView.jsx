@@ -62,7 +62,7 @@ class SimilarListView extends React.Component {
         <div className="page-container">
           {
             this.state.page === 0 ? null :
-              <div className="start-over" onClick={this.handleClick}>Start Over</div>
+              <div className="divider">|<span className="start-over" onClick={this.handleClick}>Start Over</span></div>
           }
           <div className="page">Page {this.state.page + 1} of {this.state.limit}</div>
         </div>
