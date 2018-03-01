@@ -81,3 +81,8 @@ body {
   color: grey;
   margin-left: 5px;
 }
+
+.right, .left {
+  height: 24px;
+  width: 24px;
+}
