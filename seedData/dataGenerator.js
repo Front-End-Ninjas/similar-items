@@ -4,7 +4,16 @@ const addRating = () => Math.ceil(Math.random() * 5);
 
 const addReviews = () => Math.floor(Math.random() * 255);
 
-const addPrice = () => Math.floor(Math.random() * 40000) / 100;
+const addPrice = () => {
+  const price = Math.floor(Math.random() * 40000);
+  const priceString = price.toString();
+  const dollars = priceString.slice(0, priceString.length - 2);
+  const cents = priceString.slice(priceString.length - 2);
+  if (price < 100) {
+    return `$0.${cents}`;
+  }
+  return `$${dollars}.${cents}`;
+};
 
 const hasPrime = () => {
   const bool = Math.floor(Math.random() * 4) % 4;
