@@ -1,5 +1,6 @@
 import React from 'react';
 import itemType from './type/item';
+import fetching from './type/fetch';
 
 const ThumbnailView = ({ item, fetch }) => (
   <div className="thumbnail" onClick={fetch} id={item.id}>
@@ -13,7 +14,14 @@ const ThumbnailView = ({ item, fetch }) => (
       {item.title}
     </div>
     <div className="ratings-container" id={item.id}>
-      <span className="rating" id={item.id}>{item.rating}</span>
+      <span className="rating" id={item.id}>
+        <img
+          className="rating"
+          src={`http://localhost:3000/assets/stars/${item.rating}.png`}
+          alt="thumbnail"
+          id={item.id}
+        />
+      </span>
       <span> || </span>
       <span className="reviews" id={item.id}>{item.reviews}</span>
     </div>
@@ -30,7 +38,7 @@ const ThumbnailView = ({ item, fetch }) => (
 
 ThumbnailView.propTypes = {
   item: itemType.isRequired,
-  fetch: PropType.func.isRequired,
+  fetch: fetching.isRequired,
 };
 
 export default ThumbnailView;

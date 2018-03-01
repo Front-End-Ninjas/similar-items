@@ -23,7 +23,8 @@ class SimilarListView extends React.Component {
         console.error(err);
       } else {
         this.setState({
-          list: data.rows,
+          total: data.rows,
+          list: data.rows.slice(0, 7),
           limit: Math.ceil(data.rows.length / 7),
         });
       }
@@ -47,7 +48,8 @@ class SimilarListView extends React.Component {
         console.log(err);
       } else {
         this.setState({
-          list: data.rows,
+          total: data.rows,
+          list: data.rows.slice(0, 7),
           limit: Math.ceil(data.rows.length / 7),
         });
       }
