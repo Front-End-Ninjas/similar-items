@@ -6,7 +6,7 @@ const items = shape({
   category: string.isRequired,
   rating: number.isRequired,
   reviews: number.isRequired,
-  price: number.isRequired,
+  price: string.isRequired,
   prime: bool.isRequired,
 });
 

@@ -23,9 +23,10 @@ describe('Testing helper functions for dummy generator', () => {
 
   test('Price should return a number', () => {
     const prices = price();
-    expect(typeof prices).toBe('number');
-    expect(prices).toBeLessThan(400);
-    expect(prices).toBeGreaterThanOrEqual(0);
+    expect(typeof prices).toBe('string');
+    expect(prices[0]).toBe('$');
+    expect(Number(prices[1])).toBeGreaterThanOrEqual(0);
+    expect(prices[prices.length - 3]).toBe('.');
   });
 
   test('Prime should return a boolean', () => {
