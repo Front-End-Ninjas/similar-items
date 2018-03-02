@@ -19,15 +19,12 @@ class SimilarListView extends React.Component {
 
   componentDidMount() {
     const id = Math.floor(Math.random() * 50);
-    search(id, (err, { data }) => {
+    search(id, (err, list) => {
       if (err) {
         console.error(err);
       } else {
-        this.setState({
-          total: data.rows,
-          list: data.rows.slice(0, 7),
-          limit: Math.ceil(data.rows.length / 7),
-        });
+        console.log(list);
+        this.setState(list);
       }
     });
   }
@@ -44,16 +41,12 @@ class SimilarListView extends React.Component {
 
   fetch(event) {
     const { id } = event.target;
-    search(id, (err, { data }) => {
+    search(id, (err, list) => {
       if (err) {
         console.log(err);
       } else {
-        this.setState({
-          page: 0,
-          total: data.rows,
-          list: data.rows.slice(0, 7),
-          limit: Math.ceil(data.rows.length / 7),
-        });
+        console.log(list);
+        this.setState(list);
       }
     });
   }
@@ -101,15 +94,15 @@ class SimilarListView extends React.Component {
               }
             </div>
           </div>
-            <Button className="button" id="right" onClick={this.handleClick}>
-              <img
-                src="http://localhost:3000/assets/foundation/right.png"
-                alt="right-button"
-                className="right"
-                id="right"
-                onClick={this.handleClick}
-              />
-            </Button>
+          <Button className="button" id="right" onClick={this.handleClick}>
+            <img
+              src="http://localhost:3000/assets/foundation/right.png"
+              alt="right-button"
+              className="right"
+              id="right"
+              onClick={this.handleClick}
+            />
+          </Button>
         </div>
       </div>
     );
