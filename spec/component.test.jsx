@@ -1,12 +1,19 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { JSDOM } from 'jsdom';
 import SLV from '../client/components/SimilarListView';
 import TV from '../client/components/ThumbnailView';
 import test from './testData';
 
+const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
+const { window } = jsdom;
+
+global.window = window;
+global.document = window.document;
+
 
 describe('Testing the SimilarListView', () => {
-  const similar = shallow(<SLV />);
+  const similar = mount(<SLV />);
   similar.setState({
     page: 0,
     list: test.slice(0, 7),
@@ -27,16 +34,27 @@ describe('Testing the SimilarListView', () => {
   });
 
   it('Should have a working handleClick function', () => {
-    similar.find('.right').simulate('click', { target: 'right' });
-    similar.find('.right').simulate('click', { target: 'start-over' });
+    similar.find('.right').simulate('click', { target: { id: 'right' } });
+    expect(similar.state('page')).toBe(1);
+    similar.find('.right').simulate('click', { target: { id: 'right' } });
+    expect(similar.state('page')).toBe(2);
+    similar.find('.left').simulate('click', { target: { id: 'left' } });
+    expect(similar.state('page')).toBe(1);
+    similar.find('.start-over').simulate('click', { target: { id: 'start-over' } });
     expect(similar.state('page')).toBe(0);
   });
 
-  it('Should have a working fetch function', () => {
+  it('Should have called fetch when thumbnail is clicked', () => {
     similar.instance().fetch = jest.fn();
+    similar.setState({
+      page: 0,
+      list: [test[0]],
+      total: test,
+      limit: Math.ceil(test.length / 7),
+    });
     similar.update();
-    similar.instance().fetch({ target: { id: 1 } });
-    expect(similar.instance().fetch).toBeCalledWith({ target: { id: 1 } });
+    similar.find('.thumbnail').simulate('click');
+    expect(similar.instance().fetch).toHaveBeenCalledTimes(1);
   });
 });
 
