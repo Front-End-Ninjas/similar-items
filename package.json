@@ -11,7 +11,8 @@
   },
   "jest": {
     "verbose": true,
-    "setupTestFrameworkScriptFile": "./spec/setupTests.js"
+    "setupTestFrameworkScriptFile": "./spec/setupTests.js",
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -55,6 +56,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "jest": "^22.4.0",
+    "jsdom": "^11.6.2",
     "nodemon": "^1.15.1",
     "react-test-renderer": "^16.2.0",
     "supertest": "^3.0.0",
