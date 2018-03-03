@@ -1,4 +1,5 @@
 import helper from '../client_helpers/helper';
+import search from '../client/api_request/api';
 
 describe('Testing shift function for client', () => {
   const page = 1;
@@ -30,5 +31,20 @@ describe('Testing determinePage function', () => {
     expect(helper.page('right', 1, 2)).toBe(undefined);
     expect(helper.page('left', 0, 1)).toBe(undefined);
     expect(helper.page('bad-name', 0, 1)).toBe(undefined);
+  });
+});
+
+describe('Testing axios', () => {
+  test('Should return an object', () => {
+    search(1).then(result => expect(result).toBeInstanceOf(Object));
+  });
+
+  test('Object returned should have the appropriate properties', () => {
+    search(1).then((result) => {
+      expect(result.page).toBe(0);
+      expect(result.total).toBeInstanceOf(Array);
+      expect(result.list.length).toBe(7);
+      expect(result.limit).toBeGreaterThan(0);
+    });
   });
 });
