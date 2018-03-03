@@ -19,20 +19,13 @@ class SimilarListView extends React.Component {
 
   componentDidMount() {
     const id = Math.floor(Math.random() * 50);
-    search(id, (err, list) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log(list);
-        this.setState(list);
-      }
-    });
+    search(id).then(result => this.setState(result));
   }
 
   handleClick(event) {
     const { page, total, limit } = this.state;
-    const name = event.target.id;
-    const newPage = helper.page(name, page, limit);
+    const { id } = event.target;
+    const newPage = helper.page(id, page, limit);
 
     if (newPage !== undefined) {
       this.setState(helper.shift(newPage, total));
@@ -41,14 +34,7 @@ class SimilarListView extends React.Component {
 
   fetch(event) {
     const { id } = event.target;
-    search(id, (err, list) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(list);
-        this.setState(list);
-      }
-    });
+    search(id).then(result => this.setState(result));
   }
 
   render() {
