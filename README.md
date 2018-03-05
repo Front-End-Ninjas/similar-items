@@ -7,7 +7,7 @@ This component is the carousel for the similar items for the Nile app. This is s
 In order to get this guy working please do the following steps
 
 ## Dependencies
-- Install (`Postgres`) through brewer - [google is your friend]
+- Install (`Postgres`) through brewer - [google is your friend](https://gist.github.com/sgnl/609557ebacd3378f3b72)
 - Install (`Node`) through brewer
 
 This is absolutely required. Follow the steps that they put you through.
