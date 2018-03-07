@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import ThumbnailView from './ThumbnailView';
 import helper from '../../client_helpers/helper';
 import search from '../api_request/api';
+import itemId from './type/item';
 
 class SimilarListView extends React.Component {
   constructor(props) {
@@ -18,7 +19,8 @@ class SimilarListView extends React.Component {
   }
 
   componentDidMount() {
-    const id = Math.floor(Math.random() * 50);
+    // const id = Math.floor(Math.random() * 50);
+    const { id } = this.props;
     search(id).then(result => this.setState(result));
   }
 
@@ -94,5 +96,9 @@ class SimilarListView extends React.Component {
     );
   }
 }
+
+SimilarListView.propTypes = {
+  id: itemId.isRequired,
+};
 
 export default SimilarListView;
