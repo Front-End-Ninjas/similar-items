@@ -36,15 +36,17 @@ describe('Testing determinePage function', () => {
 
 describe('Testing axios', () => {
   test('Should return an object', () => {
-    search(1).then(result => expect(result).toBeInstanceOf(Object));
+    search(1, true).then(result => expect(result).toBeInstanceOf(Object));
   });
 
   test('Object returned should have the appropriate properties', () => {
-    search(1).then((result) => {
-      expect(result.page).toBe(0);
-      expect(result.total).toBeInstanceOf(Array);
-      expect(result.list.length).toBe(7);
-      expect(result.limit).toBeGreaterThan(0);
-    });
+    search(1, true)
+      .then((result) => {
+        expect(result.page).toBe(0);
+        expect(result.total).toBeInstanceOf(Array);
+        expect(result.list.length).toBe(7);
+        expect(result.limit).toBeGreaterThan(0);
+      })
+      .catch(e => console.log('OW', e));
   });
 });

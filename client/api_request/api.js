@@ -1,7 +1,18 @@
 import axios from 'axios';
 
-const search = id => axios
-  .get(`http://localhost:3000/item/${id}/similar`)
+const getPath = (id, path) => {
+  let result;
+  if (path) {
+    result = `http://localhost:3000/item/${id}/similar`;
+  } else {
+    result = `/item/${id}/similar`;
+  }
+
+  return result;
+};
+
+const search = (id, local) => axios
+  .get(getPath(id, local))
   .then(({ data }) => (
     {
       page: 0,

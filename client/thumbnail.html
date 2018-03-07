@@ -6,8 +6,18 @@
   <link rel="stylesheet" type="text/css" href="style/styles.css">
 </head>
 <body>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <h3>Similar Items</h3>
-  <div id='app'></div>
+  <div id='similar-items-container'></div>
   <script src='app.bundle.js'></script>
+  <script>
+const item = Math.floor(Math.random() * 300);
+
+ReactDOM.render(
+  React.createElement(Similar, { id: item }, null),
+  document.getElementById('similar-items-container'),
+);
+  </script>
 </body>
 </html>

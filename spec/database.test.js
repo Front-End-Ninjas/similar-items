@@ -26,7 +26,7 @@ describe('Test querying the database', () => {
 
   test('Should get the list of items in the same category with out the original item', () => {
     const id = 0;
-    helpers.getList(id, (list) => {
+    return helpers.getList(id, (err, list) => {
       expect(list.rows).toBeInstanceOf(Array);
       expect(list.rows[0].category).toBe('Electronics');
     });
