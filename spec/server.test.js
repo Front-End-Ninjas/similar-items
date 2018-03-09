@@ -26,35 +26,3 @@ describe('Test the similar path', () => {
       expect(body.rows[0].id).not.toBe(1);
     }));
 });
-
-describe('Test the thumbnail path', () => {
-  test('It should respond to the GET request', () =>
-    request(app).get('/thumbnail/img/19').then(response =>
-      expect(response.statusCode).toBe(200)));
-
-  test('It should send an error if the url doesn\t exists', () =>
-    request(app).get('/thumbnail/img/900').then(response =>
-      expect(response.statusCode).toBe(404)));
-
-  test('It should send an image', () =>
-    request(app).get('/thumbnail/img/19').then((response) => {
-      expect(response.body).toBeInstanceOf(Buffer);
-      expect(response.type).toBe('image/jpeg');
-    }));
-});
-
-describe('Test the assests path', () => {
-  test('It should respond to the GET request', () =>
-    request(app).get('/assets/prime.png').then(response =>
-      expect(response.statusCode).toBe(200)));
-
-  test('It should send an error if the url doesn\t exists', () =>
-    request(app).get('/assets/bad').then(response =>
-      expect(response.statusCode).toBe(404)));
-
-  test('It should send an prime image', () =>
-    request(app).get('/assets/prime.png').then((response) => {
-      expect(response.body).toBeInstanceOf(Buffer);
-      expect(response.type).toBe('image/png');
-    }));
-});
