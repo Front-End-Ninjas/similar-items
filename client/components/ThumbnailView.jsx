@@ -10,6 +10,8 @@ const ThumbnailView = ({ item, fetch }) => {
     </Tooltip>
   );
 
+  const host = 'https://s3-us-west-1.amazonaws.com/nile-image-assets';
+
   return (
     <OverlayTrigger
       placement="bottom"
@@ -19,7 +21,7 @@ const ThumbnailView = ({ item, fetch }) => {
       <div className="thumbnail" onClick={fetch} id={item.id}>
         <img
           className="image"
-          src={`http://localhost:3000${item.relativePath}`}
+          src={`${host}${item.relativePath}.jpg`}
           alt="thumbnail"
           id={item.id}
         />
@@ -32,20 +34,25 @@ const ThumbnailView = ({ item, fetch }) => {
           <span className="rating" id={item.id}>
             <img
               className="rating"
-              src={`http://localhost:3000/assets/stars/${item.rating}.png`}
-              alt="thumbnail"
+              src={`${host}/${item.rating}.png`}
+              alt="rating"
               id={item.id}
             />
           </span>
           <span className="reviews" id={item.id}>
-            <Badge>{item.reviews}</Badge>
+            <Badge id={item.id}>{item.reviews}</Badge>
           </span>
         </div>
         <div className="price-prime-container" id={item.id}>
           <span className="price" id={item.id}>{item.price}</span>
           <span className="prime" id={item.id}>
             {
-              item.prime ? <img src="http://localhost:3000/assets/prime.png" alt="rating" className="prime-logo" /> : null
+              item.prime ? <img
+                src={`${host}/prime.png`}
+                alt="rating"
+                className="prime-logo"
+                id={item.id}
+              /> : null
             }
           </span>
         </div>
