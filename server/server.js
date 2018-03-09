@@ -12,4 +12,6 @@ app.use(webpackDevMiddleware(compiler, {
 
 client.connect();
 
-app.listen(3000, () => console.log('LISTENING ---- PORT 3000')); // eslint-disable-line no-console
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => console.log(`LISTENING ---- PORT ${port}`)); // eslint-disable-line no-console
