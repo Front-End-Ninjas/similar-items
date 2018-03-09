@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
+import { number } from 'prop-types';
 import ThumbnailView from './ThumbnailView';
 import helper from '../../client_helpers/helper';
 import search from '../api_request/api';
-import itemId from './type/item';
 
 class SimilarListView extends React.Component {
   constructor(props) {
@@ -19,7 +19,6 @@ class SimilarListView extends React.Component {
   }
 
   componentDidMount() {
-    // const id = Math.floor(Math.random() * 50);
     const { id } = this.props;
     search(id).then(result => this.setState(result));
   }
@@ -42,6 +41,9 @@ class SimilarListView extends React.Component {
   render() {
     return (
       <div className="list-container">
+        <div className="sponsored">
+          Sponsored products related to this item
+        </div>
         <div className="page-container">
           {
             this.state.page === 0 ? null :
@@ -60,7 +62,7 @@ class SimilarListView extends React.Component {
         <div className="carousel-container">
           <Button className="button" id="left" onClick={this.handleClick}>
             <img
-              src="http://localhost:3000/assets/foundation/left.png"
+              src="https://s3-us-west-1.amazonaws.com/nile-image-assets/left.png"
               alt="left-button"
               className="left"
               id="left"
@@ -71,7 +73,7 @@ class SimilarListView extends React.Component {
             <div className="thumbnail-container">
               {
                 this.state.list.length === 0 ?
-                  <img src="http://localhost:3000/assets/foundation/loading.gif" alt="loading" className="loading" /> :
+                  <img src="https://s3-us-west-1.amazonaws.com/nile-image-assets/loading.gif" alt="loading" className="loading" /> :
                   this.state.list.map(item => (
                     <ThumbnailView
                       key={item.id}
@@ -84,7 +86,7 @@ class SimilarListView extends React.Component {
           </div>
           <Button className="button" id="right" onClick={this.handleClick}>
             <img
-              src="http://localhost:3000/assets/foundation/right.png"
+              src="https://s3-us-west-1.amazonaws.com/nile-image-assets/right.png"
               alt="right-button"
               className="right"
               id="right"
@@ -98,7 +100,7 @@ class SimilarListView extends React.Component {
 }
 
 SimilarListView.propTypes = {
-  id: itemId.isRequired,
+  id: number.isRequired,
 };
 
 export default SimilarListView;
