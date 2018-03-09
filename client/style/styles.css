@@ -4,12 +4,19 @@ img, span, .list-container, .page-container, .carousel-container,
 .left, .thumbnail-container, .right, .thumbnail, .image,
 .title, .ratings-container, .rating, .reviews,
 .price-prime-container, .price, .prime, .thumbnail-list, .page,
-.start-over, .button, .loading, .divider {
+.start-over, .button, .loading, .divider, .sponsored {
   display: flex;
 }
 
 body {
   font-family: 'Lato';
+}
+
+.sponsored {
+  color: #CC6600;
+  font-size: 23px;
+  font-weight: bold;
+  margin: 0 3%;
 }
 
 .list-container, .thumbnail {
@@ -36,6 +43,7 @@ body {
   flex-grow: 2;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 }
 
 .loading {
@@ -47,12 +55,12 @@ body {
   height: 280px;
   width: 160px;
   margin: 0px 5px;
-  padding: 0px 5px;
+  padding: 5px;
   cursor: pointer;
   color: #0066c0;
 }
 .thumbnail:hover, .start-over:hover {
-  color: orange;
+  color: #CC6600;
   text-decoration: underline;
 }
 
